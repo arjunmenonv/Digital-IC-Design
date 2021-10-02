@@ -1,0 +1,45 @@
+Circuit: *** SPICE deck for cell FanOut_NAND2_1x{sch} from library Assign1
+
+WARNING: Node NAND2_1X@10_A is floating.
+WARNING: Node NAND2_1X@10_B is floating.
+WARNING: Node NAND2_1X@11_A is floating.
+WARNING: Node NAND2_1X@11_B is floating.
+WARNING: Node NAND2_1X@12_A is floating.
+WARNING: Node NAND2_1X@12_B is floating.
+WARNING: Node NAND2_1X@13_A is floating.
+WARNING: Node NAND2_1X@13_B is floating.
+WARNING: Node NAND2_1X@14_A is floating.
+WARNING: Node NAND2_1X@14_B is floating.
+WARNING: Node NAND2_1X@15_A is floating.
+WARNING: Node NAND2_1X@15_B is floating.
+WARNING: Node NAND2_1X@16_A is floating.
+WARNING: Node NAND2_1X@16_B is floating.
+WARNING: Node NAND2_1X@17_A is floating.
+WARNING: Node NAND2_1X@17_B is floating.
+
+Direct Newton iteration for .op point succeeded.
+
+trise=3.03764e-011 FROM 1.54176e-009 TO 1.57213e-009
+tfall=2.88396e-011 FROM 1.04088e-009 TO 1.06972e-009
+rise_delay=7.76115e-012 FROM 1.55e-009 TO 1.55776e-009
+fall_delay=7.07286e-012 FROM 1.05e-009 TO 1.05707e-009
+
+
+Date: Mon Sep 27 10:51:23 2021
+Total elapsed time: 0.304 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2376
+traniter = 2363
+tranpoints = 1112
+accept = 1093
+rejected = 19
+matrix size = 184
+fillins = 16
+solver = Normal
+Thread vector: 172.0/76.4[3] 22.5/6.7[3] 13.0/4.8[3] 4.1/5.9[1]  2592/500
+Matrix Compiler1: 27.45 KB object code size  14.9/8.6/[7.3]
+Matrix Compiler2: 22.58 KB object code size  7.0/10.0/[3.7]
+

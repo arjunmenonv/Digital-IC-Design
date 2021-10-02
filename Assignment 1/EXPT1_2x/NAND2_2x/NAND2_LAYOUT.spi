@@ -1,0 +1,43 @@
+*** SPICE deck for cell NAND2_LAYOUT{lay} from library EXPT1_2x
+*** Created on Tue Sep 14, 2021 14:58:56
+*** Last revised on Sat Sep 18, 2021 14:30:32
+*** Written on Tue Sep 21, 2021 20:43:19 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** TOP LEVEL CELL: NAND2_LAYOUT{lay}
+Mnmos@0 net@105 B gnd gnd nmos L=0.022U W=0.176U AS=0.013P AD=0.014P PS=0.495U PD=0.335U
+Mnmos@1 OUT A net@105 gnd nmos L=0.022U W=0.176U AS=0.014P AD=0.013P PS=0.335U PD=0.385U
+Mpmos@4 OUT B vdd vdd pmos  L=0.022U W=0.176U AS=0.012P AD=0.013P PS=0.49U PD=0.385U
+Mpmos@5 vdd A OUT vdd pmos L=0.022U W=0.176U AS=0.013P AD=0.012P PS=0.385U PD=0.49U
+
+* Spice Code nodes in cell cell 'NAND2_LAYOUT{lay}'
+*.include "C:\Users\hp\OneDrive - smail.iitm.ac.in\Desktop\DIC\22nm_HP.pm"
+.include "/home/arjunmenonv/Arjun_acads/Year4/DigIC/22nm_HP.pm"
+v1 B gnd pwl(0 0 100p 0.8 0.9n 0.8 1n 0 1.3n 0 1.4n 0.8)
+*v2 B gnd pwl(0 0 0.5n 0 0.6n 0.8 1.5n 0.8 1.6n 0)
+v2 A gnd DC 0.8
+v3 vdd gnd DC 0.8
+.meas tran nand2_rise_delay_idle_b
++ trig v(b) val=0.4 cross=2
++ targ v(out) val=0.4 cross=2
+.meas tran nand2_fall_delay_idle_b
++ trig v(b) val=0.4 cross=3
++ targ v(out) val=0.4 cross=3
+.meas tran nand2_trise_idle_b
++ trig v(out) val=0.08 cross=2
++ targ v(out) val=0.72 cross=2
+.meas tran nand2_tfall_idle_b
++ trig v(out) val=0.72 cross=3
++ targ v(out) val=0.08 cross=3
+*.meas tran nand2_delay_a_fall
+*+ trig v(a) val=0.4 cross=2
+*+ targ v(out) val=0.4 cross=2
+*.meas tran nand2_delay_b_fall
+*+ trig v(b) val=0.4 cross=2
+*+ targ v(out) val=0.4 cross=4
+*.meas tran nand2_delay_a_rise
+*+ trig v(a) val=0.4 cross=3
+*+ targ v(out) val=0.4 cross=3
+.tran 2.1n
+.END
