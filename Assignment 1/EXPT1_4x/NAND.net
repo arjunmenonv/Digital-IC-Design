@@ -1,0 +1,51 @@
+*** SPICE deck for cell NAND{sch} from library NAND
+*** Created on Sun Sep 19, 2021 14:41:14
+*** Last revised on Sun Sep 19, 2021 18:39:28
+*** Written on Sun Sep 19, 2021 18:39:34 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT nand2-1x__nand2 FROM CELL nand2{sch}
+.SUBCKT nand2-1x__nand2 A B Y
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 Y A net@1 gnd nmos L=0.022U W=0.352U
+Mnmos@1 net@1 B gnd gnd nmos L=0.022U W=0.352U
+Mpmos@0 vdd A Y vdd pmos L=0.022U W=0.352U
+Mpmos@1 vdd B Y vdd pmos L=0.022U W=0.352U
+.ENDS nand2-1x__nand2
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: fanout-nand2{sch}
+Xnand2@0 A B Y nand2-1x__nand2
+Xnand2@1 Y nand2@1_B nand2@1_Y nand2-1x__nand2
+Xnand2@2 Y nand2@2_B nand2@2_Y nand2-1x__nand2
+Xnand2@3 Y nand2@3_B nand2@3_Y nand2-1x__nand2
+Xnand2@4 Y nand2@4_B nand2@4_Y nand2-1x__nand2
+Xnand2@5 Y nand2@5_B nand2@5_Y nand2-1x__nand2
+Xnand2@6 Y nand2@6_B nand2@6_Y nand2-1x__nand2
+Xnand2@7 Y nand2@7_B nand2@7_Y nand2-1x__nand2
+Xnand2@8 Y nand2@8_B nand2@8_Y nand2-1x__nand2
+
+* Spice Code nodes in cell cell 'NAND:NAND{sch}'
+.include "/Users/ashwanth/DIC/22nm_HP.pm"
+.param vdd {0.8}
+v1 vdd gnd DC {vdd}
+v2 A gnd PWL(0 {vdd} 200p {vdd} 300p 0 800p 0 900p {vdd} 1n {vdd} 2.1n {vdd})
+v3 B gnd PWL(0 {vdd} 1n {vdd} 1.2n {vdd} 1.3n 0 1.8n 0 1.9n {vdd} 2.1n {vdd})
+.meas tran delay_b_fix_a_fall_to_y
++trig v(a) val={vdd/2} cross=1
++targ v(y) val={vdd/2} cross=1
+.meas tran delay_b_fix_a_rise_to_y
++trig v(a) val={vdd/2} cross=2
++targ v(y) val={vdd/2} cross=2
+.meas tran delay_a_fix_b_fall_to_y
++trig v(b) val={vdd/2} cross=1
++targ v(y) val={vdd/2} cross=3
+.meas tran delay_a_fix_b_rise_to_y
++trig v(b) val={vdd/2} cross=2
++targ v(y) val={vdd/2} cross=4
+.tran 0 2.1n
+.end
+.END
