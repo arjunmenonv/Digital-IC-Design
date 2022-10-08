@@ -2,7 +2,7 @@
 Schematic and Layout libraries of digital logic gates and cells. Assignments and Project from EE5311 Digital IC Design course at IIT Madras. 
 Aug-Nov 2021
 
-Collaborators: [Arjun Menon V](https://github.com/arjunmenonv), [Srinivas R](https://github.com/srinivasrdhkrshnn) and [Ashwanth S]()
+Collaborators: [Arjun Menon V](https://github.com/arjunmenonv), [Srinivas R](https://github.com/srinivasrdhkrshnn) and Ashwanth S
 
 
 To run simulations for the schematic and layout files included in the library, replace the include path with path to the model file in the .include command.
